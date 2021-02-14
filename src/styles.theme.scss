@@ -1,0 +1,49 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$primary-palette: mat-palette($mat-gray, 800);
+$accent-palette: mat-palette($mat-indigo);
+$theme: mat-light-theme($primary-palette, $accent-palette);
+@include angular-material-theme($theme);
+
+$mat-color-grey: mat-palette($mat-grey);
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: mat-color($mat-color-grey, 200);
+  border-radius: 5px;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+  background-color: mat-color($mat-color-grey, 50);
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline,
+.mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+  color: transparent;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick,
+.mat-form-field-appearance-outline.mat-focused.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+  color: mat-color($mat-color-grey, 500);
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-outline-gap,
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float.mat-focused .mat-form-field-outline-gap {
+  border-top-color: mat-color($mat-color-grey, 500);
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+.mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+  -webkit-transform: translateY(-.59375em) scale(.75);
+  transform: translateY(-.59375em) scale(.75);
+  width: 133.33333333%;
+}
+
+.material-icons {
+  cursor: pointer;
+}
+
+input:-internal-autofill-selected {
+  background: transparent;
+}

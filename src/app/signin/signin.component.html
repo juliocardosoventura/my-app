@@ -1,0 +1,20 @@
+<div class="wrapper" fxFlexFill fxLayoutAlign="center center">
+  <form [formGroup]="formGroup" fxLayout="column" fxLayoutGap="10px">
+      <mat-form-field appearance="outline">
+          <mat-label i18n="@@email">Email</mat-label>
+          <input formControlName="email" matInput type="email" autocomplete="off" cdkFocusInitial (keyup.enter)="submit()">
+          <mat-error *ngIf="formGroup.get('email').hasError('required')" i18n="@@emailReq1">We need an email address</mat-error>
+          <mat-error *ngIf="formGroup.get('email').hasError('email')" i18n="@@emailReq2">The value must be an email</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+          <mat-label i18n="@@password">Password</mat-label>
+          <input formControlName="password" matInput [type]="inputType" autocomplete="password" (keyup.enter)="submit()">
+          <mat-icon matSuffix *ngIf="visible" (click)="toggleVisibility()">visibility</mat-icon>
+          <mat-icon matSuffix *ngIf="!visible" (click)="toggleVisibility()">visibility_off</mat-icon>
+          <mat-hint i18n="@@passwordHint">Click on the eye to change visibility</mat-hint>
+          <mat-error *ngIf="formGroup.get('password').hasError('required')" i18n="@@passwordReq1">Enter the password</mat-error>
+          <mat-error *ngIf="formGroup.get('password').hasError('auth/wrong-password')">{{formGroup.get('password').getError('auth/wrong-password')}}</mat-error>
+      </mat-form-field>
+      <button fxFlex="100" mat-raised-button color="primary" i18n="@@signIn">Sign In</button>
+  </form>
+</div>
