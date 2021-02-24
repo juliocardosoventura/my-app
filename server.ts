@@ -18,8 +18,7 @@ const compression = require('compression');
 export function app(): express.Express {
   const server = express();
   server.use(compression());
-
-  const distFolder = join(process.cwd(),  `dist/my-app/browser/${process.env.NODE_Lang}/`);
+  const distFolder = join(process.cwd(),  `dist/my-app/browser/${process.env.NODE_Lang || 'en'}/`);
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
