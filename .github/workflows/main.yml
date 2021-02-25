@@ -27,12 +27,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
     - uses: actions/checkout@v2
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+
     - uses: actions/cache@v1
       with:
         path: ~/.npm
@@ -40,11 +42,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - name : Install Modules
+    - name : Install Packages
       run: npm install
 
-    - name : Run Build SSR
-      run: npm run build:ssr
+    - name : Deploy
+      run: |
+        npm run build:ssr
 
     # Runs a single command using the runners shell
     #- name: Run a one-line script
