@@ -197,6 +197,13 @@
           "configurations": {
             "production": {}
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "functionsNodeVersion": 14,
+            "ssr": true
+          }
         }
       }
     }
