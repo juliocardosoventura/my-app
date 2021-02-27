@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "my-app-9a5c3"
+  },
+  "targets": {
+    "my-app-9a5c3": {
+      "hosting": {
+        "my-app": [
+          "my-app-9a5c3"
+        ]
+      }
+    }
+  }
+}
